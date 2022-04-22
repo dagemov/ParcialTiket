@@ -3,17 +3,17 @@
     public class SeedDb
     {
         private readonly DataContext _context;
-        private readonly Ticket ticket;
 
-        public SeedDb(DataContext context, Ticket ticket)
+        public SeedDb(DataContext context)
         {
             _context = context;
-            this.ticket = ticket;
+
         }
         public async Task SeedAsync()
         {
             await _context.Database.EnsureCreatedAsync();
-            await CheckEntranceAsync();          
+            await CheckEntranceAsync();
+           // await CheckTicketAsync();
             //await _context.SaveChangesAsync();
         }
 
@@ -24,26 +24,25 @@
             if (!_context.Entrances.Any())
             {
                 _context.Entrances.Add(new Entrance
-                { 
-                    Id=1,
+                {
+                    
                     Description = "Norte",
 
                 }) ;
                 _context.Entrances.Add(new Entrance
                 {
-                  Id=2,
                     Description = "Sur"
 
                 });
                 _context.Entrances.Add(new Entrance
                 {
-                   Id=3,
+                    
                     Description = "Oriente"
 
                 });
                 _context.Entrances.Add(new Entrance
                 {
-                   Id=4,
+                    
                     Description = "Occidente"
 
                 });
@@ -61,41 +60,15 @@
                         }
          * 
          * */
-        private async Task CheckTicketAsync(/*int id*/)
+        private async Task CheckTicketAsync()
         {
-
-            //Entrance entrance = await _context.Entrances.FindAsync(id);
-            Console.WriteLine("llegue hasta aca");
             int n = 0;
             while (n<5000) {
-                _context.Tickets.Add(new Ticket
+                new Ticket()
                 {
-
                     Id = n,
-                    name = "null",
-                    Entrances = new List<Entrance>()
-                    {
-                        
-                        new Entrance()
-                        {
-                            Description="Norte"
-                        },
-                        new Entrance()
-                        {
-                            Description="Sur"
-                        },
-                        new Entrance()
-                        {
-                            Description="Oriente"
-                        },
-                        new Entrance()
-                        {
-                            Description="Occidente"
-                        },
-
-                    }
-                });  
-                n++;
+                    //Entrances
+                };
             }
             await _context.SaveChangesAsync();
         }

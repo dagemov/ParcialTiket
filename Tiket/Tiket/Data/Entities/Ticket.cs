@@ -16,8 +16,7 @@ namespace Tiket.Data.Entities
         [MaxLength(50, ErrorMessage = "El campo {0} debe tener máximo {1} caractéres.")]
         public string name { get; set; }
 
-        [Range(0,3)]
-        public ICollection<Entrance> Entrances { get; set; }
+        public Entrance Entrances { get; set; }
         
         public DateTime DateTime { get; set; }
     }

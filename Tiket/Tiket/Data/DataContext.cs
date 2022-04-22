@@ -14,7 +14,7 @@ namespace Tiket.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Ticket>().HasIndex(t => t.Id).IsUnique();
-            modelBuilder.Entity<Entrance>().HasIndex("Id", "Description").IsUnique();
+            modelBuilder.Entity<Entrance>().HasIndex(e=> e.Id).IsUnique();
         }
     }
 }
