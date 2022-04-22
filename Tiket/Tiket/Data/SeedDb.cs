@@ -68,10 +68,6 @@
             Console.WriteLine("llegue hasta aca");
             int n = 0;
             while (n<5000) {
-                if (ticket.Id==n)
-                {
-                    n = 5000;
-                }
                 _context.Tickets.Add(new Ticket
                 {
 
