@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Tiket.Data;
+using Tiket.Data.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -11,8 +12,19 @@ builder.Services.AddDbContext<DataContext>(o =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddTransient<SeedDb>();
 var app = builder.Build();
+SeedData();
+void SeedData()
+{
+    IServiceScopeFactory? scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+    using (IServiceScope? scope = scopedFactory.CreateScope())
+    {
+        SeedDb? service = scope.ServiceProvider.GetService<SeedDb>();
+        service.SeedAsync().Wait();
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

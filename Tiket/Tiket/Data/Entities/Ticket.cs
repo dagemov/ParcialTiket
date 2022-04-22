@@ -10,12 +10,10 @@ namespace Tiket.Data.Entities
 
         [Display(Name = "Document")]
         [MaxLength(20, ErrorMessage = "El campo {0} debe tener máximo {1} caractéres.")]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public int document { get; set; }
 
         [Display(Name = "Nombre")]
         [MaxLength(50, ErrorMessage = "El campo {0} debe tener máximo {1} caractéres.")]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string name { get; set; }
 
         public Entrance Entrances { get; set; }

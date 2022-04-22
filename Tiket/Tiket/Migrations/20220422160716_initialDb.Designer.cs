@@ -12,8 +12,8 @@ using Tiket.Data;
 namespace Tiket.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220422144334_initialdb")]
-    partial class initialdb
+    [Migration("20220422160716_initialDb")]
+    partial class initialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
