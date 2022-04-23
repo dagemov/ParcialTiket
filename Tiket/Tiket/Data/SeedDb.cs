@@ -25,25 +25,46 @@
             {
                 _context.Entrances.Add(new Entrance
                 {
-                    
+
                     Description = "Norte",
+                    Ticket = new List<Ticket>() { 
+                        new Ticket() { 
+                            name="null"
+                    
+                    } }
+                    
 
                 }) ;
                 _context.Entrances.Add(new Entrance
                 {
-                    Description = "Sur"
+                    Description = "Sur",
+                    Ticket = new List<Ticket>() {
+                        new Ticket() {
+                             name="null"
+
+                    } }
 
                 });
                 _context.Entrances.Add(new Entrance
                 {
                     
-                    Description = "Oriente"
+                    Description = "Oriente",
+                    Ticket = new List<Ticket>() {
+                        new Ticket() {
+                             name="null"
+
+                    } }
 
                 });
                 _context.Entrances.Add(new Entrance
                 {
                     
-                    Description = "Occidente"
+                    Description = "Occidente",
+                    Ticket = new List<Ticket>() {
+                        new Ticket() {
+                             name="null"
+
+                    } }
 
                 });
             }

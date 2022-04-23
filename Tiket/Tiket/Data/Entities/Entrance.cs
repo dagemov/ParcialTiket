@@ -11,6 +11,7 @@ namespace Tiket.Data.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Description { get; set; }
 
+        [Range(1,1250)]
         public ICollection<Ticket> Ticket { get; set; }
     }
 }
