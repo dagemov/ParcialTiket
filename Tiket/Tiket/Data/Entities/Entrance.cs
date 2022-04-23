@@ -6,12 +6,9 @@ namespace Tiket.Data.Entities
     {
         public int Id { get; set; }
 
-        [Display(Name = "Descripción")]
-        [MaxLength(50, ErrorMessage = "El campo {0} debe tener máximo {1} caractéres.")]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        [MaxLength(50, ErrorMessage = "El campo {0} debe tener maximo {1} caractéres")]
         public string Description { get; set; }
 
-        [Range(1,1250)]
-        public ICollection<Ticket> Ticket { get; set; }
+        public ICollection<Ticket>? Tickets { get; set; }
     }
 }

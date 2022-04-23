@@ -13,65 +13,116 @@ namespace Tiket.Data.Entities
         public async Task SeedAsync()
         {
             await _context.Database.EnsureCreatedAsync();
-            await CheckEntranceAsync();
+            await CheckEntrancesAsync();
            // await CheckTicketAsync();
             //await _context.SaveChangesAsync();
         }
 
-       
 
-        private async Task CheckEntranceAsync()
+
+        private async Task CheckEntrancesAsync()
         {
+
             if (!_context.Entrances.Any())
             {
-                _context.Entrances.Add(new Entrance
+                Entrance entrance1 = new Entrance
                 {
-
                     Description = "Norte",
-                    Ticket = new List<Ticket>() { 
-                        new Ticket() { 
-                            name="null"
-                    
-                    } }
-                    
+                    Tickets = new List<Ticket>()
 
-                }) ;
-                _context.Entrances.Add(new Entrance
+                };
+
+                Entrance entrance2 = new Entrance
                 {
                     Description = "Sur",
-                    Ticket = new List<Ticket>() {
-                        new Ticket() {
-                             name="null"
+                    Tickets = new List<Ticket>()
+                };
 
-                    } }
-
-                });
-                _context.Entrances.Add(new Entrance
+                Entrance entrance3 = new Entrance
                 {
-                    
-                    Description = "Oriente",
-                    Ticket = new List<Ticket>() {
-                        new Ticket() {
-                             name="null"
+                    Description = "Occidental",
+                    Tickets = new List<Ticket>()
+                };
 
-                    } }
-
-                });
-                _context.Entrances.Add(new Entrance
+                Entrance entrance4 = new Entrance
                 {
+                    Description = "Oriental",
+                    Tickets = new List<Ticket>()
+                };
 
-                    Description = "Occidente",
+                List<Ticket> tickets1 = new List<Ticket>();
+                for (int i = 1; i <= 1250; i++)
+                {
+                    Ticket t = new Ticket
+                    {
+                        WasUsed = false,
+                        Entrance = entrance1,
+                        Document = "",
+                        Name = "",
+                        Date = DateTime.Now
+                    };
+                    tickets1.Add(t);
+                    _context.Tickets.Add(t);
+                }
+                entrance1.Tickets = tickets1;
 
-                    Ticket = new List<Ticket>(){
-                        new Ticket() {
-                             name="null"
+                List<Ticket> tickets2 = new List<Ticket>();
+                for (int i = 1250; i <= 2500; i++)
+                {
+                    Ticket t = new Ticket
+                    {
+                        WasUsed = false,
+                        Entrance = entrance2
+                        ,
+                        Document = "",
+                        Name = "",
+                        Date = DateTime.Now
+                    };
+                    tickets2.Add(t);
+                    _context.Tickets.Add(t);
+                }
+                entrance2.Tickets = tickets2;
 
-                    } }
+                List<Ticket> tickets3 = new List<Ticket>();
+                for (int i = 2500; i <= 3750; i++)
+                {
+                    Ticket t = new Ticket
+                    {
+                        WasUsed = false,
+                        Entrance = entrance3,
+                        Document = "",
+                        Name = "",
+                        Date = DateTime.Now
+                    };
+                    tickets3.Add(t);
+                    _context.Tickets.Add(t);
+                }
+                entrance3.Tickets = tickets3;
 
-                });
+
+                List<Ticket> tickets4 = new List<Ticket>();
+                for (int i = 3750; i <= 5000; i++)
+                {
+                    Ticket t = new Ticket
+                    {
+                        WasUsed = false,
+                        Entrance = entrance4,
+                        Document = "",
+                        Name = "",
+                        Date = DateTime.Now
+                    };
+                    tickets4.Add(t);
+                    _context.Tickets.Add(t);
+                }
+                entrance4.Tickets = tickets4;
+
+                _context.Entrances.Add(entrance1);
+                _context.Entrances.Add(entrance2);
+                _context.Entrances.Add(entrance3);
+                _context.Entrances.Add(entrance4);
             }
-
             await _context.SaveChangesAsync();
+
         }
         //
         /* while (n < 1250)

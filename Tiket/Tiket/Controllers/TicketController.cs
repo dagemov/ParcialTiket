@@ -31,9 +31,9 @@ namespace Tiket.Controllers
             else
             {
                 Ticket ticket1 = await _context.Tickets
-               .Include(t => t.DateTime)
-               .Include(t1 => t1.document)
-               .Include(t2 => t2.name)
+               .Include(t => t.Date)
+               .Include(t1 => t1.Document)
+               .Include(t2 => t2.Name)
 
                .FirstOrDefaultAsync(m => m.Id == id);
                 return View(ticket1);       
