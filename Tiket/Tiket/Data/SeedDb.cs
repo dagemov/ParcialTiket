@@ -1,4 +1,5 @@
-﻿namespace Tiket.Data.Entities
+﻿using System.ComponentModel.DataAnnotations;
+namespace Tiket.Data.Entities
 {
     public class SeedDb
     {
@@ -58,9 +59,10 @@
                 });
                 _context.Entrances.Add(new Entrance
                 {
-                    
+
                     Description = "Occidente",
-                    Ticket = new List<Ticket>() {
+
+                    Ticket = new List<Ticket>(){
                         new Ticket() {
                              name="null"
 

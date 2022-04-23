@@ -1,5 +1,21 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Tiket.Data.Entities.Ticket
 @{
+    ViewData["Title"] = "Verificate";
 }
+<div class="form-group">
+    <div>
+    <label asp-for="Id" class="control-label"></label>
+    <input asp-for="Id" class="form-control" />
+    <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <form asp-action="Verificate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id"/>
+            <partial name="_Country"/>            
+            <div class="form-group mt-2">
+                <input type="submit" value="Verficar" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
